@@ -1,6 +1,6 @@
-# Vanna Blog (blog_frontend)
+# Blog Info (blog_frontend)
 
-\"Vanna's info\"
+Personal infomation
 
 ## Install the dependencies
 ```bash

@@ -113,9 +113,9 @@ module.exports = configure(function (/* ctx */) {
       workboxPluginMode: 'GenerateSW', // 'GenerateSW' or 'InjectManifest'
       workboxOptions: {}, // only for GenerateSW
       manifest: {
-        name: `Vanna Blog`,
-        short_name: `Vanna Blog`,
-        description: `\"Vanna's info\"`,
+        name: `Blog Info`,
+        short_name: `Blog Info`,
+        description: `Personal infomation`,
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#ffffff',
