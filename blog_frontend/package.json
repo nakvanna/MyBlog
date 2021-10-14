@@ -1,8 +1,8 @@
 {
   "name": "blog_frontend",
   "version": "0.0.1",
-  "description": "\"Vanna's info\"",
-  "productName": "Vanna Blog",
+  "description": "Personal infomation",
+  "productName": "Blog Info",
   "author": "nakvanna <nakvannamcu@gmail.com>",
   "private": true,
   "scripts": {
