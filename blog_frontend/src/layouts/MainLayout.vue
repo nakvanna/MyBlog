@@ -8,7 +8,6 @@
           <q-route-tab class="font-metal-mania" to="/" exact replace label="HOME"/>
           <q-route-tab class="font-metal-mania" to="/about-us" exact replace label="ABOUT"/>
           <q-route-tab class="font-metal-mania" to="/contact-us" exact replace label="CONTACT"/>
-          <q-route-tab class="font-metal-mania" to="/gallery" exact replace label="GALLERY"/>
         </q-tabs>
       </q-toolbar>
     </q-header>

@@ -1,110 +1,171 @@
 <template>
-  <q-page class="image-background row items-center justify-evenly">
-<!--    <q-img-->
-<!--      style="position: absolute; padding-top: 250px"-->
-<!--      src="../../assets/background-image.png" width="30%"/>-->
-    <div class="row full-width">
-      <!--   HOME left path   -->
-      <div class="col-xs-12 col-sm-6 col-md-6 ">
-        <div class="text-center float-right q-pt-md q-pl-md">
-          <div style="font-size: 24px" class="text-bold font-nosifer">
-            HELLO
-          </div>
+  <q-page class="image-background row items-center">
+    <div class="row full-width q-py-lg">
+      <div class="col-xs-12 col-sm col-md col-md-4"></div>
 
-          <div style="font-size: 54px" class="text-bold font-play-ball">
-            I'm <span class="text-red-4 underline text-bold">Nak Vanna</span>
-          </div>
+      <div
+        class="col-xs-12 col-sm-8 col-md-6 col-md-4 bg-white shadow-2 rounded-borders"
+      >
+        <q-list :key="item_key" bordered v-for="(item, item_key) in state.data">
+          <q-item clickable v-ripple>
+            <div>
+              <div class="row full-width">
+                <q-avatar class="q-pa-md">
+                  <q-img :src="item.user.profile"/>
+                </q-avatar>
+                <div
+                  class="font-metal-mania q-pt-md q-pl-lg"
+                  style="font-size: 24px"
+                >
+                  {{ item.user.name }}
+                </div>
+              </div>
+              <div class="q-pa-md" v-html="item.title"/>
+              <div class="q-pa-md">
+                <q-card v-if="item.images.length === 1">
+                  <q-img
+                    v-for="(img, img_key) in item.images"
+                    :key="img_key"
+                    class="image-1"
+                    :src="img"
+                  >
+                    <div
+                      class="font-koulen absolute-bottom-right text-subtitle2 text-right"
+                      style="font-size: 16px"
+                    >
+                      {{ item.images.length }}
+                    </div>
+                  </q-img>
+                </q-card>
+                <q-card class="row q-gutter-xs q-pr-xs q-pb-xs" v-if="item.images.length === 2">
+                  <q-img
+                    v-for="(img, img_key) in item.images"
+                    :key="img_key"
+                    class="image-2 col"
+                    :ratio="1/2"
+                    :src="img"
+                  >
+                    <div
+                      v-if="img_key === 1"
+                      class="font-koulen absolute-bottom-right text-subtitle2 text-right"
+                      style="font-size: 16px"
+                    >
+                      {{ item.images.length }}
+                    </div>
+                  </q-img>
+                </q-card>
+                <q-card class="row q-gutter-xs q-pr-xs q-pb-xs" v-if="item.images.length === 3">
+                  <q-img
+                    class="image-2 col q-pb-md"
+                    :ratio="1/2"
+                    :src="item.images[0]"
+                  />
 
-          <div
-            class="text-h6 text-bold q-py-md underline font-koulen"
-            style="font-size: 24px"
-          >
-            ប្រវត្ដិរូបសង្ខេប
-          </div>
-          <div
-            class="font-preahvihear"
-            style="font-size: 16px"
-          >
-            គោត្តនាម: <span class="text-green-5 text-bold">ណាក់ វណ្ណា</span>
-            ភេទ: <span class="text-green-5 text-bold">ប្រុស</span>
-            សញ្ជាតិ: <span class="text-green-5 text-bold">ខែ្មរ</span>
-            ជនជាតិ: <span class="text-green-5 text-bold">ខែ្មរ</span>
-            ឆ្នាំកំណើត: <span class="text-green-5 text-bold">១៩៩៧</span>
-          </div>
-          <div class="font-preahvihear q-pt-sm">
-            ទីកន្លែងកំណើត
-          </div>
-          <div class="font-preahvihear">
-            ភូមិ: <span class="text-green-5 text-bold">ស្ពានកណ្ដោល</span>
-            ឃុំ: <span class="text-green-5 text-bold">បវេល</span>
-            ស្រុក: <span class="text-green-5 text-bold">បវេល</span>
-            ខេត្ត: <span class="text-green-5 text-bold">បាត់ដំបង</span>
-          </div>
-          <div class="font-preahvihear">
-            កំពស់ : <span class="text-green-5 text-bold">១.៨៥ សង់ទីម៉ែត្រ</span>
-          </div>
-          <div class="font-preahvihear">
-            ទូរស័ព្ទទំនាក់ទំនង : <span class="text-green-5 text-bold">0969392312</span>
-          </div>
+                  <div class="col">
+                    <q-img
+                      class="image-4"
+                      :src="item.images[1]"
+                    />
+                    <q-img
+                      class="image-4"
+                      :src="item.images[2]"
+                    >
+                      <div
+                        class="font-koulen absolute-bottom-right text-subtitle2 text-right"
+                        style="font-size: 16px"
+                      >
+                        {{ item.images.length }}
+                      </div>
+                    </q-img>
+                  </div>
 
-          <div
-            class="text-h6 text-bold q-py-md underline font-koulen"
-            style="font-size: 24px"
-          >
-            កំរិតវប្បធម៌
-          </div>
-          <div
-            class="font-preahvihear"
-            style="font-size: 16px"
-          >
-            ២០១៥-២០១៩: <span class="text-green-5 text-bold">បរិញ្ញាបត្រ ព័ត៌មានវិទ្យា</span>
-          </div>
-          <div
-            class="font-preahvihear"
-            style="font-size: 16px"
-          >
-            ២០១១-២០១៥: <span class="text-green-5 text-bold">វិទ្យាល័យ</span>
-          </div>
-          <div
-            class="font-preahvihear"
-            style="font-size: 16px"
-          >
-            ២០០៧-២០១១: <span class="text-green-5 text-bold">អនុវិទ្យល័យ</span>
-          </div>
+                </q-card>
+                <q-card class="row q-gutter-xs q-pr-xs q-pb-xs" v-if="item.images.length === 4">
+                  <div class="col">
+                    <q-img
+                      class="image-4"
+                      :src="item.images[0]"
+                    />
+                    <q-img
+                      class="image-4"
+                      :src="item.images[1]"
+                    />
+                  </div>
+                  <div class="col">
+                    <q-img
+                      class="image-4"
+                      :src="item.images[2]"
+                    />
+                    <q-img
+                      class="image-4"
+                      :src="item.images[3]"
+                    >
+                      <div
+                        class="font-koulen absolute-bottom-right text-subtitle2 text-right"
+                        style="font-size: 16px"
+                      >
+                        {{ item.images.length }}
+                      </div>
+                    </q-img>
+                  </div>
+                </q-card>
+                <q-card class="row q-gutter-xs q-pr-xs q-pb-xs" v-if="item.images.length > 4">
+                  <div class="col">
+                    <q-img
+                      class="image-4"
+                      :src="item.images[0]"
+                    />
+                    <q-img
+                      class="image-4"
+                      :src="item.images[1]"
+                    />
+                  </div>
+                  <div class="col">
+                    <q-img
+                      class="image-4"
+                      :src="item.images[2]"
+                    />
+                    <q-img
+                      class="image-4"
+                      :src="item.images[3]"
+                    >
+                      <div
+                        class="font-koulen absolute-bottom-right text-subtitle2 text-right"
+                        style="font-size: 16px"
+                      >
+                        {{ item.images.length }}
+                      </div>
+                    </q-img>
+                  </div>
+                </q-card>
+              </div>
 
-          <div
-            class="text-h6 text-bold q-py-md underline font-koulen"
-            style="font-size: 24px"
-          >
-            ប្រវត្តិគ្រួសារ
-          </div>
-          <div
-            class="font-preahvihear"
-            style="font-size: 16px"
-          >
-            ស្ថានភាពគ្រួសារ : <span class="text-green-5 text-bold">នៅលីវ</span>
-          </div>
-          <div
-            class="font-preahvihear"
-            style="font-size: 16px"
-          >
-            ម្តាយឈ្មោះ : <span class="text-green-5 text-bold">ភេម សុភាព</span>
-          </div>
-          <div
-            class="font-preahvihear"
-            style="font-size: 16px"
-          >
-            ឪពុកឈ្មោះ : <span class="text-green-5 text-bold">មិត ណាក់</span>
-          </div>
-        </div>
+              <!--     Like comment share         -->
+              <div class="row justify-center text-center full-width">
+                <div class="col-4">
+                  <!--                  <q-btn round color="primary" icon="mdi-heart"/>-->
+                  <q-btn flat round color="primary" icon="mdi-heart-outline"/>
+                  3.4k
+                </div>
+                <div class="col-4">
+                  <!--                  <q-btn round color="primary" icon="mdi-message"/>-->
+                  <q-btn flat round color="primary" icon="mdi-message-outline"/>
+                  1k
+                </div>
+                <div class="col-4">
+                  <!--                  <q-btn round color="primary" icon="mdi-share"/>-->
+                  <q-btn flat round color="primary" icon="mdi-share-outline"/>
+                  500
+                </div>
+              </div>
+            </div>
+          </q-item>
+
+        </q-list>
+
       </div>
 
-      <!--   HOME right path   -->
-      <div class="col-xs-12 col-sm-6 col-md-6">
-        <div class="text-center float-left">
-          <q-img src="../../assets/profile.png" width="450px"/>
-        </div>
-      </div>
+      <div class="col-xs-12 col-sm col-md col-md-4"></div>
     </div>
   </q-page>
 </template>
@@ -117,7 +178,80 @@ export default defineComponent({
   props: {},
   setup: () => {
     const state = reactive({
-      tab: "home"
+      data: [
+        {
+          title: "All human beings are born free & equal in dignity & rights. That’s why we are acting together to end\n" +
+            "persistent poverty, respect all people & our planet. #BreakTheCycle http://bit.ly/UNIDEP2021 ",
+          images: [
+            'https://cdn.quasar.dev/img/parallax2.jpg'
+          ],
+          user: {
+            name: "Nak Nanna",
+            username: "nakvanna",
+            profile: "https://pbs.twimg.com/profile_images/1121942926437666816/Ck65AlxH_400x400.jpg"
+          }
+        },
+        {
+          title: "All human beings are born free & equal in dignity & rights. That’s why we are acting together to end\n" +
+            "persistent poverty, respect all people & our planet. #BreakTheCycle http://bit.ly/UNIDEP2021 ",
+          images: [
+            'https://cdn.quasar.dev/img/parallax2.jpg',
+            'https://cdn.quasar.dev/img/mountains.jpg',
+          ],
+          user: {
+            name: "Chorn Khemra",
+            username: "chornkhemra",
+            profile: "https://cdn.quasar.dev/img/avatar.png"
+          }
+        },
+        {
+          title: "All human beings are born free & equal in dignity & rights. That’s why we are acting together to end\n" +
+            "persistent poverty, respect all people & our planet. #BreakTheCycle http://bit.ly/UNIDEP2021 ",
+          images: [
+            'https://cdn.quasar.dev/img/parallax1.jpg',
+            'https://cdn.quasar.dev/img/mountains.jpg',
+            'https://cdn.quasar.dev/img/parallax2.jpg',
+          ],
+          user: {
+            name: "Mjaz Srok",
+            username: "mjazsrok",
+            profile: "https://cdn.quasar.dev/img/avatar.png"
+          }
+        },
+        {
+          title: "All human beings are born free & equal in dignity & rights. That’s why we are acting together to end\n" +
+            "persistent poverty, respect all people & our planet. #BreakTheCycle http://bit.ly/UNIDEP2021 ",
+          images: [
+            'https://cdn.quasar.dev/img/parallax1.jpg',
+            'https://cdn.quasar.dev/img/mountains.jpg',
+            'https://cdn.quasar.dev/img/mountains.jpg',
+            'https://cdn.quasar.dev/img/parallax2.jpg',
+          ],
+          user: {
+            name: "Mjaz Srok",
+            username: "mjazsrok",
+            profile: "https://cdn.quasar.dev/img/avatar.png"
+          }
+        },
+        {
+          title: "All human beings are born free & equal in dignity & rights. That’s why we are acting together to end\n" +
+            "persistent poverty, respect all people & our planet. #BreakTheCycle http://bit.ly/UNIDEP2021 ",
+          images: [
+            'https://cdn.quasar.dev/img/parallax1.jpg',
+            'https://cdn.quasar.dev/img/mountains.jpg',
+            'https://cdn.quasar.dev/img/mountains.jpg',
+            'https://cdn.quasar.dev/img/parallax2.jpg',
+            'https://cdn.quasar.dev/img/parallax2.jpg',
+            'https://cdn.quasar.dev/img/parallax2.jpg',
+            'https://cdn.quasar.dev/img/parallax2.jpg',
+          ],
+          user: {
+            name: "Mjaz Srok",
+            username: "mjazsrok",
+            profile: "https://cdn.quasar.dev/img/avatar.png"
+          }
+        },
+      ]
     })
     const md = {}
     return {
@@ -129,7 +263,24 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.underline {
-  text-decoration: underline;
+.image-1 {
+  width: 100%;
+  height: 350px;
 }
+
+.image-2 {
+  width: 50%;
+  height: 350px;
+}
+
+.image-3 {
+  width: 50%;
+  height: 350px;
+}
+
+.image-4 {
+  width: 100%;
+  height: 175px;
+}
+
 </style>
