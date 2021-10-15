@@ -28,8 +28,11 @@
             ជនជាតិ: <span class="text-green-5 text-bold">ខែ្មរ</span>
             ឆ្នាំកំណើត: <span class="text-green-5 text-bold">១៩៩៧</span>
           </div>
+          <div class="font-preahvihear q-pt-sm">
+            ទីកន្លែងកំណើត
+          </div>
           <div class="font-preahvihear">
-            ទីកន្លែងកំណើត ភូមិ: <span class="text-green-5 text-bold">ស្ពានកណ្ដោល</span>
+            ភូមិ: <span class="text-green-5 text-bold">ស្ពានកណ្ដោល</span>
             ឃុំ: <span class="text-green-5 text-bold">បវេល</span>
             ស្រុក: <span class="text-green-5 text-bold">បវេល</span>
             ខេត្ត: <span class="text-green-5 text-bold">បាត់ដំបង</span>
