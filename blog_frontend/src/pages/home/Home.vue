@@ -1,9 +1,12 @@
 <template>
-  <q-page class="row items-center justify-evenly">
+  <q-page class="image-background row items-center justify-evenly">
+<!--    <q-img-->
+<!--      style="position: absolute; padding-top: 250px"-->
+<!--      src="../../assets/background-image.png" width="30%"/>-->
     <div class="row full-width">
       <!--   HOME left path   -->
-      <div class="col-xs-12 col-sm-6 col-md-6 text-center ">
-        <div class="justify-center float-right q-pt-md">
+      <div class="col-xs-12 col-sm-6 col-md-6 ">
+        <div class="text-center float-right q-pt-md q-pl-md">
           <div style="font-size: 24px" class="text-bold font-nosifer">
             HELLO
           </div>
@@ -97,7 +100,7 @@
       </div>
 
       <!--   HOME right path   -->
-      <div class="col-xs-12 col-sm-6 col-md-6 justify-start">
+      <div class="col-xs-12 col-sm-6 col-md-6">
         <div class="text-center float-left">
           <q-img src="../../assets/profile.png" width="450px"/>
         </div>
