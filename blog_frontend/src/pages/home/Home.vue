@@ -54,19 +54,19 @@
             class="font-preahvihear"
             style="font-size: 16px"
           >
-            ២០១៥-២០១៨: <span class="text-green-5 text-bold">បរិញ្ញាបត្រ ព័ត៌មានវិទ្យា</span>
+            ២០១៥-២០១៩: <span class="text-green-5 text-bold">បរិញ្ញាបត្រ ព័ត៌មានវិទ្យា</span>
           </div>
           <div
             class="font-preahvihear"
             style="font-size: 16px"
           >
-            ២០១២-២០១៥: <span class="text-green-5 text-bold">វិទ្យាល័យ</span>
+            ២០១១-២០១៥: <span class="text-green-5 text-bold">វិទ្យាល័យ</span>
           </div>
           <div
             class="font-preahvihear"
             style="font-size: 16px"
           >
-            ២០០៩-២០១២: <span class="text-green-5 text-bold">អនុវិទ្យល័យ</span>
+            ២០០៧-២០១១: <span class="text-green-5 text-bold">អនុវិទ្យល័យ</span>
           </div>
 
           <div
