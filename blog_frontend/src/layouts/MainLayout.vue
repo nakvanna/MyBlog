@@ -2,12 +2,12 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
       <q-toolbar class="bg-white text-black shadow-2 rounded-borders">
-        <q-btn flat label="LOGO"/>
+        <q-btn class="font-nosifer" size="24px" flat label="LOGO"/>
         <q-space/>
         <q-tabs shrink>
-          <q-route-tab to="/" exact replace label="HOME"/>
-          <q-route-tab to="/about-us" exact replace label="About"/>
-          <q-route-tab to="/contact-us" exact replace label="CONTACT"/>
+          <q-route-tab class="font-metal-mania" to="/" exact replace label="HOME"/>
+          <q-route-tab class="font-metal-mania" to="/about-us" exact replace label="About"/>
+          <q-route-tab class="font-metal-mania" to="/contact-us" exact replace label="CONTACT"/>
         </q-tabs>
       </q-toolbar>
     </q-header>

@@ -1,6 +1,6 @@
 <template>
   <q-page class="row items-center justify-evenly">
-    <h1>Contact Us</h1>
+    <h3 class="font-nosifer">Contact</h3>
   </q-page>
 </template>
 
