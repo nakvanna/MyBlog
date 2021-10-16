@@ -3,19 +3,20 @@
     class="q-ma-md"
   >
     <div class="full-width" style="padding-top: 50px">
-      <div class="row justify-center text-center">
+      <div class="row">
         <!--        left section-->
         <div
-          class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 my-div-left"
+          class="float-right col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 my-div-left"
           style="padding-top: 100px"
         >
-          <div class="font-nosifer text-red-5" style="font-size: 36px">
-            Blogger
+          <div class="justify-center text-center">
+            <div class="font-nosifer text-red-5" style="font-size: 36px">
+              Blogger
+            </div>
+            <div class="font-play-ball" style="font-size: 28px">
+              Connect with friends and the world around you on <span class="text-red-5">Blogger</span>.
+            </div>
           </div>
-          <div class="font-play-ball" style="font-size: 28px">
-            Connect with friends and the world around you on <span class="text-red-5">Blogger</span>.
-          </div>
-
         </div>
 
         <!--        Right section-->
