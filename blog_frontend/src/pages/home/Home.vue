@@ -1,10 +1,10 @@
 <template>
   <q-page class="image-background row items-center">
     <div class="row full-width q-py-lg">
-      <div class="col-xs-12 col-sm col-md col-md-4"></div>
+      <div class="col-xs-12 col-sm col-md col-md"></div>
 
       <div
-        class="col-xs-12 col-sm-8 col-md-6 col-md-4 bg-white shadow-2 rounded-borders"
+        class="col-xs-12 col-sm-8 col-md-4 col-md-6 bg-white shadow-2 rounded-borders"
       >
         <q-list :key="item_key" bordered v-for="(item, item_key) in state.data">
           <q-item clickable v-ripple>
@@ -165,7 +165,7 @@
 
       </div>
 
-      <div class="col-xs-12 col-sm col-md col-md-4"></div>
+      <div class="col-xs-12 col-sm col-md col-md"></div>
     </div>
   </q-page>
 </template>
