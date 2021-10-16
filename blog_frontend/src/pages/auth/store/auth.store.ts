@@ -1,9 +1,10 @@
 import {reactive} from "@vue/composition-api";
 import {createUserGraphql} from "pages/auth/graphql/create-user.graphql";
 import {loginUserGraphql} from "pages/auth/graphql/login-user.graphql";
-import {UserModel} from "pages/auth/model/users.model";
+import {LoginUserModel, UserModel} from "pages/auth/model/users.model";
 import {useMutation} from "@vue/apollo-composable";
-import {crudMessage} from "src/helpers/utils";
+import {cleanObject, crudMessage, LOGIN_INFO_KEY} from "src/helpers/utils";
+import {LocalStorage} from "quasar";
 
 const userGraphqlState = {
   userQueryDoc: {
@@ -38,6 +39,43 @@ export function registerUser() {
 
   //mutates
   const mutateUser = useMutation(userGraphqlState.userQueryDoc.registerUser)
+  return {
+    state,
+    md
+  }
+}
+
+export function loginUser() {
+  const state = reactive({
+    user: {
+      data: <LoginUserModel>{}
+    }
+  })
+
+  const md = {
+    user: {
+      login: () => {
+        const data = cleanObject(state.user.data)
+        console.log(data)
+        mutationLogin.mutate({data})
+          .then(res => {
+            const userInfoAndToken = res?.data['login'] || null
+            LocalStorage.set(LOGIN_INFO_KEY, userInfoAndToken)
+            window.location.reload()
+            crudMessage.successMsg('ចូលបានជោគជ័យ!')
+          })
+          .catch(_err => {
+            crudMessage.errorMsg('បរាជ័យក្នុងការចូល!')
+          })
+      },
+      clear: () => {
+
+      }
+    }
+  }
+
+  const mutationLogin = useMutation(userGraphqlState.userQueryDoc.loginUser)
+
   return {
     state,
     md
