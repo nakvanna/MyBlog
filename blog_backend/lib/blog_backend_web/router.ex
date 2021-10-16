@@ -11,12 +11,19 @@ defmodule BlogBackendWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug BlogBackendWeb.Plug.Context
   end
 
   scope "/", BlogBackendWeb do
     pipe_through :browser
 
     get "/", PageController, :index
+  end
+
+  scope "/" do
+    pipe_through :api
+
+    forward "/graphql", Absinthe.Plug.GraphiQL, schema: BlogBackendWeb.Schema
   end
 
   # Other scopes may use custom stacks.
