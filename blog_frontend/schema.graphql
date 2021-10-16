@@ -1,0 +1,91 @@
+"Represents a schema"
+schema {
+  query: RootQueryType
+  mutation: RootMutationType
+}
+
+type PageInfo {
+  "When paginating backwards, are there more items?"
+  hasPreviousPage: Boolean!
+
+  "When paginating forwards, are there more items?"
+  hasNextPage: Boolean!
+
+  "When paginating backwards, the cursor to continue."
+  startCursor: String
+
+  "When paginating forwards, the cursor to continue."
+  endCursor: String
+}
+
+type UserConnection {
+  pageInfo: PageInfo!
+  edges: [UserEdge]
+  count: Int
+}
+
+input CreateUserInputType {
+  profile: String
+  name: String!
+  username: String!
+  email: String!
+  password: String!
+  passwordConfirmation: String!
+}
+
+type Session {
+  token: String
+  user: User
+}
+
+input UpdateUserInputType {
+  profile: String
+  name: String
+  username: String
+  email: String
+  password: String
+  passwordConfirmation: String
+  role: String
+  verify: Boolean
+}
+
+input CreateSessionInput {
+  emailOrUsername: String!
+  password: String!
+}
+
+"""
+The `Json` scalar type represents arbitrary json string data, represented as UTF-8
+character sequences. The Json type is most often used to represent a free-form
+human-readable json string.
+"""
+scalar Json
+
+type RootMutationType {
+  login(data: CreateSessionInput!): Session
+  createUser(data: CreateUserInputType!): User
+  updateUser(id: ID, data: UpdateUserInputType): User
+  deleteUser(id: ID): User
+}
+
+type RootQueryType {
+  users(after: String, first: Int, before: String, last: Int, condition: Json!): UserConnection
+  findUser(id: ID): User
+}
+
+type UserEdge {
+  node: User
+  cursor: String
+}
+
+type User {
+  id: ID
+  profile: String
+  name: String
+  username: String
+  email: String
+  role: String
+  verify: Boolean
+  success: Boolean
+  message: String
+}
