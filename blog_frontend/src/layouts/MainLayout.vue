@@ -2,7 +2,7 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
       <q-toolbar class="bg-white text-black shadow-2 rounded-borders">
-        <q-btn class="font-nosifer" size="24px" flat label="LOGO"/>
+        <q-btn class="font-nosifer text-red" size="24px" flat label="LOGO"/>
         <q-space/>
         <q-tabs shrink>
           <q-route-tab class="font-metal-mania" to="/" exact replace label="HOME"/>

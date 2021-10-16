@@ -1,25 +1,27 @@
 <template>
   <q-page class="image-background row items-center">
-    <div class="row full-width q-py-lg">
+    <div class="row full-width q-py-sm">
       <div class="col-xs-12 col-sm col-md col-md"></div>
 
       <div
-        class="col-xs-12 col-sm-8 col-md-7 col-lg-5 bg-white shadow-2 rounded-borders"
+        class="col-xs-12 col-sm-8 col-md-7 col-lg-5 col-xl-5  bg-white shadow-2 rounded-borders"
       >
+
         <q-list :key="item_key" bordered v-for="(item, item_key) in state.data">
-          <q-item clickable v-ripple>
+          <q-item>
             <div>
-              <div class="row full-width">
-                <q-avatar class="q-pa-md">
-                  <q-img :src="item.user.profile"/>
-                </q-avatar>
-                <div
-                  class="font-metal-mania q-pt-md q-pl-lg"
-                  style="font-size: 24px"
-                >
-                  {{ item.user.name }}
-                </div>
-              </div>
+              <!--    content section       -->
+              <q-item>
+                <q-item-section class="justify-content-start" avatar>
+                  <q-avatar size="3rem">
+                    <q-img :src="item.user.profile"/>
+                  </q-avatar>
+                </q-item-section>
+                <q-item-section>
+                  <q-item-label style="font-size: 24px" class="font-metal-mania">{{ item.user.name }}</q-item-label>
+                  <q-item-label caption lines="2">{{ 12 }}h</q-item-label>
+                </q-item-section>
+              </q-item>
               <div class="q-pa-md" v-html="item.title"/>
               <div class="q-pa-md">
                 <q-card v-if="item.images.length === 1">
@@ -140,23 +142,49 @@
                 </q-card>
               </div>
 
-              <!--     Like comment share         -->
+              <!--     Like comment share section        -->
+              <q-separator/>
               <div class="row justify-center text-center full-width">
                 <div class="col-4">
                   <!--                  <q-btn round color="primary" icon="mdi-heart"/>-->
                   <q-btn flat round color="primary" icon="mdi-heart-outline"/>
-                  3.4k
+                  <span class="font-play-ball">{{ 3.4 }}k</span>
                 </div>
                 <div class="col-4">
                   <!--                  <q-btn round color="primary" icon="mdi-message"/>-->
                   <q-btn flat round color="primary" icon="mdi-message-outline"/>
-                  1k
+                  <span class="font-play-ball">{{ 1.4 }}k</span>
                 </div>
                 <div class="col-4">
                   <!--                  <q-btn round color="primary" icon="mdi-share"/>-->
                   <q-btn flat round color="primary" icon="mdi-share-outline"/>
-                  500
+                  <span class="font-play-ball">{{ 102 }}</span>
                 </div>
+              </div>
+              <q-separator/>
+              <!--    Comments section          -->
+              <div class="row full-width">
+                <q-list :key="cmt_index" v-for="(cmt, cmt_index) in item.comments" class="full-width">
+                  <q-item>
+                    <q-item-section class="justify-content-start" avatar>
+                      <q-avatar size="2rem">
+                        <q-img :src="cmt.user.profile"/>
+                      </q-avatar>
+                    </q-item-section>
+                    <q-item-section>
+                      <q-item-label class="font-preahvihear">{{ cmt.user.name }}</q-item-label>
+                      <q-item-label caption lines="2">{{ cmt.comment }}</q-item-label>
+                      <q-item-label>
+                        <div class="col-4">
+                          <!--                  <q-btn round color="primary" icon="mdi-message"/>-->
+                          <q-btn size=".7rem" flat round label="Reply"/>
+                          <q-btn size=".7rem" flat round icon="mdi-heart-outline"/>
+                          <span style="font-size: 12px" class="font-play-ball">{{ cmt.like }}</span>
+                        </div>
+                      </q-item-label>
+                    </q-item-section>
+                  </q-item>
+                </q-list>
               </div>
             </div>
           </q-item>
@@ -189,7 +217,27 @@ export default defineComponent({
             name: "Nak Nanna",
             username: "nakvanna",
             profile: "https://pbs.twimg.com/profile_images/1121942926437666816/Ck65AlxH_400x400.jpg"
-          }
+          },
+          comments: [
+            {
+              user: {
+                name: "Chorn Khemra",
+                username: "@chornkhemra",
+                profile: "https://cdn.quasar.dev/img/avatar.png"
+              },
+              comment: "Hello my Crush",
+              like: 15,
+            },
+            {
+              user: {
+                name: "Nak Vanna",
+                username: "@nakvanna",
+                profile: "https://cdn.quasar.dev/img/avatar.png"
+              },
+              comment: "Hello my Crush",
+              like: 15,
+            }
+          ]
         },
         {
           title: "All human beings are born free & equal in dignity & rights. That’s why we are acting together to end\n" +
@@ -202,7 +250,18 @@ export default defineComponent({
             name: "Chorn Khemra",
             username: "chornkhemra",
             profile: "https://cdn.quasar.dev/img/avatar.png"
-          }
+          },
+          comments: [
+            {
+              user: {
+                name: "Kon Jrok",
+                username: "@konjrok",
+                profile: "https://cdn.quasar.dev/img/avatar.png"
+              },
+              comment: "What's that",
+              like: 53,
+            },
+          ]
         },
         {
           title: "All human beings are born free & equal in dignity & rights. That’s why we are acting together to end\n" +
@@ -216,7 +275,36 @@ export default defineComponent({
             name: "Mjaz Srok",
             username: "mjazsrok",
             profile: "https://cdn.quasar.dev/img/avatar.png"
-          }
+          },
+          comments: [
+            {
+              user: {
+                name: "Mjaz Srok",
+                username: "@mjazsrok",
+                profile: "https://cdn.quasar.dev/img/avatar.png"
+              },
+              comment: "Want to see more",
+              like: 15,
+            },
+            {
+              user: {
+                name: "Nak Vanna",
+                username: "@nakvanna",
+                profile: "https://pbs.twimg.com/profile_images/1121942926437666816/Ck65AlxH_400x400.jpg"
+              },
+              comment: "What are u doing?",
+              like: 56,
+            },
+            {
+              user: {
+                name: "Mii Love",
+                username: "@miilove",
+                profile: "https://cdn.quasar.dev/img/avatar.png"
+              },
+              comment: "Okay kayoo",
+              like: 20,
+            }
+          ]
         },
         {
           title: "All human beings are born free & equal in dignity & rights. That’s why we are acting together to end\n" +
@@ -231,7 +319,8 @@ export default defineComponent({
             name: "Mjaz Srok",
             username: "mjazsrok",
             profile: "https://cdn.quasar.dev/img/avatar.png"
-          }
+          },
+          comments: []
         },
         {
           title: "All human beings are born free & equal in dignity & rights. That’s why we are acting together to end\n" +
@@ -249,7 +338,8 @@ export default defineComponent({
             name: "Mjaz Srok",
             username: "mjazsrok",
             profile: "https://cdn.quasar.dev/img/avatar.png"
-          }
+          },
+          comments: []
         },
       ]
     })
@@ -273,14 +363,12 @@ export default defineComponent({
   height: 350px;
 }
 
-.image-3 {
-  width: 50%;
-  height: 350px;
-}
-
 .image-4 {
   width: 100%;
   height: 175px;
 }
 
+.justify-content-start {
+  justify-content: start
+}
 </style>
