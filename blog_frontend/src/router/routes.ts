@@ -14,10 +14,6 @@ const routes: RouteConfig[] = [
 
   ///Authentication
   {
-    path: '/register',
-    component: () => import('layouts/AuthLayout.vue'),
-    children: [{path: '', component: () => import('pages/auth/Register.vue')}],
-  }, {
     path: '/login',
     component: () => import('layouts/AuthLayout.vue'),
     children: [{path: '', component: () => import('pages/auth/Login.vue')}],
