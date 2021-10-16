@@ -4,7 +4,7 @@
       <div class="col-xs-12 col-sm col-md col-md"></div>
 
       <div
-        class="col-xs-12 col-sm-8 col-md-4 col-md-6 bg-white shadow-2 rounded-borders"
+        class="col-xs-12 col-sm-8 col-md-7 col-lg-5 bg-white shadow-2 rounded-borders"
       >
         <q-list :key="item_key" bordered v-for="(item, item_key) in state.data">
           <q-item clickable v-ripple>
