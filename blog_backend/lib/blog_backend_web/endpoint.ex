@@ -60,6 +60,9 @@ defmodule BlogBackendWeb.Endpoint do
   plug CORSPlug,
        origin: [
          "http://localhost:8080",
+         "http://157.245.55.57:8080",
+         "http://157.245.55.57",
+         "http://nakvanna.club",
        ]
   plug BlogBackendWeb.Router
 end

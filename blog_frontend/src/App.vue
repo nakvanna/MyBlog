@@ -18,7 +18,8 @@ const cache = new InMemoryCache({
 let userInfo = <any>LocalStorage.getItem(LOGIN_INFO_KEY)
 
 
-const httpLink = new HttpLink({uri: 'http://127.0.0.1:4000/graphql'});
+// const httpLink = new HttpLink({uri: 'http://127.0.0.1:4000/graphql'});
+const httpLink = new HttpLink({uri: 'http://157.245.55.57:4000/graphql'});
 
 const authMiddleware = new ApolloLink((operation, forward) => {
 
