@@ -8,6 +8,7 @@ const routes: RouteConfig[] = [
       {path: '', component: () => import('pages/home/Home.vue'), meta: {requireAuth: true}},
       {path: 'about-us', component: () => import('pages/about/About.vue'), meta: {requireAuth: true}},
       {path: 'contact-us', component: () => import('pages/contact/Contact.vue'), meta: {requireAuth: true}},
+      {path: 'setting', component: () => import('pages/setting/Setting.vue'), meta: {requireAuth: true}},
     ],
 
   },

@@ -23,7 +23,6 @@ export function registerUser() {
     user: {
       create: () => {
         const data = JSON.parse(JSON.stringify(state.user.data))
-        console.log(data)
         mutateUser.mutate({data})
           .then(_res => {
             crudMessage.successCreate()
@@ -68,11 +67,11 @@ export function loginUser() {
           .then(res => {
             const userInfoAndToken = res?.data['login'] || null
             LocalStorage.set(LOGIN_INFO_KEY, userInfoAndToken)
-            crudMessage.successMsg('ចូលបានជោគជ័យ!')
+            crudMessage.successMsg('Login បានជោគជ័យ!')
             setTimeout(() => window.location.reload(), 1000);
           })
           .catch(_err => {
-            crudMessage.errorMsg('បរាជ័យក្នុងការចូល!')
+            crudMessage.errorMsg('បរាជ័យក្នុងការ Login!')
           })
       },
       clear: () => {
