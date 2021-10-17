@@ -62,7 +62,6 @@ export function loginUser() {
     user: {
       login: () => {
         const data = cleanObject(state.user.data)
-        console.log(data)
         mutationLogin.mutate({data})
           .then(res => {
             const userInfoAndToken = res?.data['login'] || null
