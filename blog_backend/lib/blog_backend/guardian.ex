@@ -1,5 +1,5 @@
 defmodule BlogBackend.Guardian do
-  use Guardian, otp_app: :phoenixer_api
+  use Guardian, otp_app: :blog_backend
   alias BlogBackend.Accounts
 
 

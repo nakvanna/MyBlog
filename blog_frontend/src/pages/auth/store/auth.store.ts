@@ -23,12 +23,19 @@ export function registerUser() {
     user: {
       create: () => {
         const data = JSON.parse(JSON.stringify(state.user.data))
+        console.log(data)
         mutateUser.mutate({data})
           .then(_res => {
             crudMessage.successCreate()
           })
           .catch(_err => {
-            crudMessage.errorCreate()
+            console.log(_err.message)
+            if (_err.message === 'username_already_taken')
+              crudMessage.errorMsg("Username ត្រូវបានគេជ្រើសរើស")
+            else if (_err.message === 'email_already_taken')
+              crudMessage.errorMsg("Email ត្រូវបានគេជ្រើសរើស")
+            else
+              crudMessage.errorCreate()
           })
       },
       clear: () => {
@@ -61,8 +68,8 @@ export function loginUser() {
           .then(res => {
             const userInfoAndToken = res?.data['login'] || null
             LocalStorage.set(LOGIN_INFO_KEY, userInfoAndToken)
-            window.location.reload()
             crudMessage.successMsg('ចូលបានជោគជ័យ!')
+            setTimeout(() => window.location.reload(), 1000);
           })
           .catch(_err => {
             crudMessage.errorMsg('បរាជ័យក្នុងការចូល!')

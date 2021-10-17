@@ -7,7 +7,7 @@
       <q-separator/>
       <q-card-section>
         <q-form
-          @submit=""
+          @submit="crUser.md.user.create()"
           @reset=""
         >
           <q-input

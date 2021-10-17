@@ -1,19 +1,21 @@
-import {Notify} from "quasar";
-import { LocalStorage } from 'quasar'
+import {LocalStorage, Notify} from "quasar";
 
 export const UPLOAD_URL = 'http://localhost:4000/file-upload'
 export const SERVER_URL = 'http://localhost:4000'
-export function getGlobalUser(){
+
+export function getGlobalUser() {
   const x = <any>LocalStorage.getItem(LOGIN_INFO_KEY)
   return x['user']
 }
 
-export function getGlobalToken(){
+export function getGlobalToken() {
   const x = <any>LocalStorage.getItem(LOGIN_INFO_KEY)
   return x['token']
 }
-export const LOGIN_INFO_KEY = 'loginInfoKey'
-export function cleanObject(obj: any){
+
+export const LOGIN_INFO_KEY = 'bloggerLoginInfoKey'
+
+export function cleanObject(obj: any) {
   return JSON.parse(JSON.stringify(obj))
 }
 

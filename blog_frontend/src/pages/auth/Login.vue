@@ -26,7 +26,7 @@
             <q-card style="width: 350px">
               <q-card-section>
                 <q-form
-                  @submit=""
+                  @submit="lgUser.md.user.login()"
                   @reset="lgUser.md.user.clear()"
                 >
                   <q-input

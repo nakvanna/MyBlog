@@ -62,6 +62,13 @@ defmodule BlogBackend.Accounts do
     %User{}
     |> User.changeset(attrs)
     |> Repo.insert()
+    |> case  do
+         {:error, error} ->
+           ##Catch error and get message from unique_constraint
+           {_, {message, _}} = List.first(error.errors)
+           {:error, message}
+         {:ok, user} -> {:ok, Map.merge(user, %{success: true, message: "ចុះឈ្មោះបានជោគជ័យ!"})}
+       end
   end
 
   @doc """

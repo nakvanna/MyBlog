@@ -23,8 +23,8 @@ defmodule BlogBackend.Accounts.User do
     user
     |> cast(attrs, [:profile, :name, :username, :email, :password, :password_confirmation, :role, :verify])
     |> validate_required([:name, :username, :email, :password, :password_confirmation, :role, :verify])
-    |> unique_constraint(:username, message: "Username already taken!")
-    |> unique_constraint(:email, message: "Email already taken!")
+    |> unique_constraint(:username, message: "username_already_taken")
+    |> unique_constraint(:email, message: "email_already_taken")
     |> update_change(:email, &String.downcase(&1))
     |> validate_format(:email, ~r/@/)
     |> validate_confirmation(:password)
